@@ -56,6 +56,20 @@ export default {
 	// `this` 指向 vm 实例
 	  return this.project.split('').reverse().join('')
 	},
+  },
+
+  created: function() {
+    console.group('------created创建完毕状态------');
+    console.log("%c%s", "color:red","el     : " + this.$el); //undefined
+    console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化 
+    console.log("%c%s", "color:red","project: " + this.project); //已被初始化
+  },
+  mounted: function() {
+    console.group('------mounted 挂载结束状态------');
+    console.log("%c%s", "color:red","el     : " + this.$el); //已被初始化
+    console.log(this.$el);    
+    console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化
+    console.log("%c%s", "color:red","project: " + this.project); //已被初始化 
   }
 }
 </script>
