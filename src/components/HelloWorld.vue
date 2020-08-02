@@ -1,7 +1,15 @@
 <template>
   <div class="hello">
     <p>{{ msg }}</p>
-	<!--
+	<p>vuex_count: {{$store.state.vuex_count}}</p>
+	<button @click="handleAddClick(10)">增加vuex_count</button>
+	<br/>
+	<button @click="handleReduceClick(10)">减少vuex_count</button>
+	<div>
+	  <button @click="handleActionsAdd(10)">异步增加</button>
+	  <br/>
+	  <button @click="handleActionsReduce(10)">异步减少</button>
+	</div>
 	<p>{{ project }}</p>
 	<input v-model="input_message" placeholder="编辑我……" />
 	<p>消息是: {{ input_message }}</p>
@@ -18,13 +26,14 @@
 	  <p>template里控制显示，取决于ok。</p>
 	  <p>人生若只如初见,何事秋风悲画扇。</p>
 	  <p>等闲变却故人心,却道故人心易变。</p>
-	</template>-->
+	</template>
 	<p>原始字符串: {{ project }}</p>
 	<p>计算后反转字符串: {{ reversedProject }}</p>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'HelloWorld',
   props: {
@@ -48,7 +57,19 @@ export default {
   methods: {
 	addOne: function (event) {
 	  this.counter += 1;
-    }
+    },
+	handleAddClick(n){
+	  this.$store.commit('mutationsAddCount',n);
+	},
+	handleReduceClick(n){
+	  this.$store.commit('mutationsReduceCount',n);
+	},
+	handleActionsAdd(n){
+	  this.$store.dispatch('actionsAddCount',n)
+	},
+	handleActionsReduce(n){
+	  this.$store.dispatch('actionsReduceCount',n)
+	}
   },
   computed: {
 	// 计算属性的 getter
