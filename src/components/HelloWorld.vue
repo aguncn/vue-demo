@@ -10,6 +10,7 @@
 	  <br/>
 	  <button @click="handleActionsReduce(10)">异步减少</button>
 	</div>
+	<!--
 	<p>{{ project }}</p>
 	<input v-model="input_message" placeholder="编辑我……" />
 	<p>消息是: {{ input_message }}</p>
@@ -29,6 +30,7 @@
 	</template>
 	<p>原始字符串: {{ project }}</p>
 	<p>计算后反转字符串: {{ reversedProject }}</p>
+	-->
   </div>
 </template>
 
